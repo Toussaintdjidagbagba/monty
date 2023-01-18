@@ -27,17 +27,17 @@ int _strcmp(char *s1, char *s2)
  */
 int _sch(char *s, char c)
 {
-	int cont = 0;
+	int countt = 0;
 
-	while (s[cont] != '\0')
+	while (s[countt] != '\0')
 	{
-		if (s[cont] == c)
+		if (s[countt] == c)
 		{
 			break;
 		}
-		cont++;
+		countt++;
 	}
-	if (s[cont] == c)
+	if (s[countt] == c)
 		return (1);
 	else
 		return (0);
@@ -51,17 +51,17 @@ int _sch(char *s, char c)
  */
 char *_strtoky(char *s, char *d)
 {
-	static char *ultimo;
+	static char *uniq;
 	int i = 0, j = 0;
 
 	if (!s)
-		s = ultimo;
+		s = uniq;
 	while (s[i] != '\0')
 	{
 		if (_sch(d, s[i]) == 0 && s[i + 1] == '\0')
 		{
-			ultimo = s + i + 1;
-			*ultimo = '\0';
+			uniq = s + i + 1;
+			*uniq = '\0';
 			s = s + j;
 			return (s);
 		}
@@ -69,9 +69,9 @@ char *_strtoky(char *s, char *d)
 			i++;
 		else if (_sch(d, s[i]) == 0 && _sch(d, s[i + 1]) == 1)
 		{
-			ultimo = s + i + 1;
-			*ultimo = '\0';
-			ultimo++;
+			uniq = s + i + 1;
+			*uniq = '\0';
+			uniq++;
 			s = s + j;
 			return (s);
 		}

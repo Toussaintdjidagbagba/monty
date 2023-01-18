@@ -1,33 +1,33 @@
 #include "monty.h"
 
-global_t vglo;
+global_temp gt;
 
 /**
- * free_vglo - frees the global variables
+ * free_gt - frees the global variables
  *
  * Return: no return
  */
-void free_vglo(void)
+void free_gt(void)
 {
-	free_dlistint(vglo.head);
-	free(vglo.buffer);
-	fclose(vglo.fd);
+	free_dlistint(gt.head);
+	free(gt.buffer);
+	fclose(gt.fd);
 }
 
 /**
- * start_vglo - initializes the global variables
+ * start_gt - initializes the global variables
  *
  * @fd: file descriptor
  * Return: no return
  */
-void start_vglo(FILE *fd)
+void start_gt(FILE *fd)
 {
-	vglo.lifo = 1;
-	vglo.cont = 1;
-	vglo.arg = NULL;
-	vglo.head = NULL;
-	vglo.fd = fd;
-	vglo.buffer = NULL;
+	gt.lifo = 1;
+	gt.cont = 1;
+	gt.arg = NULL;
+	gt.head = NULL;
+	gt.fd = fd;
+	gt.buffer = NULL;
 }
 
 /**
@@ -44,7 +44,7 @@ FILE *check_input(int argc, char *argv[])
 
 	if (argc == 1 || argc > 2)
 	{
-		dprintf(2, "USAGE: monty file\n");
+		printf("USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 
@@ -52,7 +52,7 @@ FILE *check_input(int argc, char *argv[])
 
 	if (fd == NULL)
 	{
-		dprintf(2, "Error: Can't open file %s\n", argv[1]);
+		printf("Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 
@@ -75,29 +75,29 @@ int main(int argc, char *argv[])
 	char *lines[2] = {NULL, NULL};
 
 	fd = check_input(argc, argv);
-	start_vglo(fd);
-	nlines = getline(&vglo.buffer, &size, fd);
+	start_gt(fd);
+	nlines = getline(&gt.buffer, &size, fd);
 	while (nlines != -1)
 	{
-		lines[0] = _strtoky(vglo.buffer, " \t\n");
+		lines[0] = _strtoky(gt.buffer, " \t\n");
 		if (lines[0] && lines[0][0] != '#')
 		{
 			f = get_opcodes(lines[0]);
 			if (!f)
 			{
-				dprintf(2, "L%u: ", vglo.cont);
-				dprintf(2, "unknown instruction %s\n", lines[0]);
-				free_vglo();
+				printf( "L%u: ", gt.cont);
+				printf( "unknown instruction %s\n", lines[0]);
+				free_gt();
 				exit(EXIT_FAILURE);
 			}
-			vglo.arg = _strtoky(NULL, " \t\n");
-			f(&vglo.head, vglo.cont);
+			gt.arg = _strtoky(NULL, " \t\n");
+			f(&gt.head, gt.cont);
 		}
-		nlines = getline(&vglo.buffer, &size, fd);
-		vglo.cont++;
+		nlines = getline(&gt.buffer, &size, fd);
+		gt.cont++;
 	}
 
-	free_vglo();
+	free_gt();
 
 	return (0);
 }
