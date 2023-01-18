@@ -1,5 +1,5 @@
 #include "monty.h"
-#include <stdio.h>
+
 
 /**
  * _push - pushes an element to the stack
@@ -14,8 +14,8 @@ void _push(stack_t **doubly, unsigned int cline)
 
 	if (!gt.arg)
 	{
-		dprintf(2, "L%u: ", cline);
-		dprintf(2, "usage: push integer\n");
+		printf( "L%u: ", cline);
+		printf( "usage: push integer\n");
 		free_gt();
 		exit(EXIT_FAILURE);
 	}
@@ -24,8 +24,8 @@ void _push(stack_t **doubly, unsigned int cline)
 	{
 		if (!isdigit(gt.arg[j]) && gt.arg[j] != '-')
 		{
-			dprintf(2, "L%u: ", cline);
-			dprintf(2, "usage: push integer\n");
+			printf( "L%u: ", cline);
+			printf( "usage: push integer\n");
 			free_gt();
 			exit(EXIT_FAILURE);
 		}
