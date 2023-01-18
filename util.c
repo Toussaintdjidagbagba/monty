@@ -1,30 +1,30 @@
 #include "monty.h"
 
 /**
- * start_vars - Fake rand to jackpoint Giga Millions
- * @var: Global variables to initialize
+ * start_vars - initialise struct global
+ * @vars: struct global to initialize
  * Return: 0 Success, 1 Failed
  */
-int start_vars(vars *var)
+int start_vars(sg *vars)
 {
-	var->file = NULL;
-	var->buff = NULL;
-	var->tmp = 0;
-	var->dict = create_instru();
-	if (var->dict == NULL)
+	vars->file = NULL;
+	vars->buff = NULL;
+	vars->tmp = 0;
+	vars->dict = create_instru();
+	if (vars->dict == NULL)
 		return (EXIT_FAILURE);
-	var->head = NULL;
-	var->line_number = 1;
-	var->MODE = 0;
+	vars->head = NULL;
+	vars->line_number = 1;
+	vars->MODE = 0;
 
 	return (EXIT_SUCCESS);
 }
 
 /**
- * create_instru - Create new functions dictionary
+ * create_dic - Create new functions dictionary
  * Return: Dictionary pointer
  */
-instruction_t *create_instru()
+instruction_t *create_dic()
 {
 	instruction_t *ptr = malloc(sizeof(instruction_t) * 18);
 
@@ -44,26 +44,26 @@ instruction_t *create_instru()
 
 /**
  * call_funct - Call Functions
- * @var: Global variables
+ * @vars: struct global 
  * @opcode: Command to execute
  * Return: None
  */
-int call_funct(vars *var, char *opcode)
+int call_funct(sg *vars, char *opcode)
 {
 	int i;
 
-	for (i = 0; var->dict[i].opcode; i++)
-		if (strcmp(opcode, var->dict[i].opcode) == 0)
+	for (i = 0; vars->dict[i].opcode; i++)
+		if (strcmp(opcode, vars->dict[i].opcode) == 0)
 		{
-			if (!var->dict[i].f)
+			if (!vars->dict[i].f)
 				return (EXIT_SUCCESS);
-			var->dict[i].f(&var->head, var->line_number);
+			vars->dict[i].f(&vars->head, vars->line_number);
 			return (EXIT_SUCCESS);
 		}
 	if (strlen(opcode) != 0 && opcode[0] != '#')
 	{
 		fprintf(stderr, "L%u: unknown instruction %s\n",
-			var->line_number, opcode);
+			vars->line_number, opcode);
 		return (EXIT_FAILURE);
 	}
 
@@ -77,19 +77,19 @@ int call_funct(vars *var, char *opcode)
  */
 void free_all(void)
 {
-	if (var.buff != NULL)
-		free(var.buff);
-	if (var.file != NULL)
-		fclose(var.file);
-	free(var.dict);
-	if (var.head != NULL)
+	if (vars.buff != NULL)
+		free(vars.buff);
+	if (vars.file != NULL)
+		fclose(vars.file);
+	free(vars.dict);
+	if (vars.head != NULL)
 	{
-		while (var.head->next != NULL)
+		while (vars.head->next != NULL)
 		{
-			var.head = var.head->next;
-			free(var.head->prev);
+			vars.head = vars.head->next;
+			free(vars.head->prev);
 		}
-		free(var.head);
+		free(vars.head);
 	}
 }
 
