@@ -10,7 +10,7 @@ int start_vars(vars *var)
 	var->file = NULL;
 	var->buff = NULL;
 	var->tmp = 0;
-	var->dict = create_instru();
+	var->dict = create_instruction();
 	if (var->dict == NULL)
 		return (EXIT_FAILURE);
 	var->head = NULL;
@@ -21,10 +21,10 @@ int start_vars(vars *var)
 }
 
 /**
- * create_instru - Create new functions dictionary
+ * create_instruction - Create new functions dictionary
  * Return: Dictionary pointer
  */
-instruction_t *create_instru()
+instruction_t *create_instruction()
 {
 	instruction_t *ptr = malloc(sizeof(instruction_t) * 18);
 
@@ -43,12 +43,12 @@ instruction_t *create_instru()
 }
 
 /**
- * call_funct - Call Functions
+ * get_funct - Call Functions
  * @var: Global variables
  * @opcode: Command to execute
  * Return: None
  */
-int call_funct(vars *var, char *opcode)
+int get_funct(vars *var, char *opcode)
 {
 	int i;
 

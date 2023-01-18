@@ -33,7 +33,7 @@ int main(int ac, char **av)
 	{
 		opcode = strtok(var.buff, " \r\t\n");
 		if (opcode != NULL)
-			if (call_funct(&var, opcode) == EXIT_FAILURE)
+			if (get_funct(&var, opcode) == EXIT_FAILURE)
 			{
 				free_all();
 				return (EXIT_FAILURE);

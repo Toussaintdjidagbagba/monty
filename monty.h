@@ -51,8 +51,8 @@ typedef struct instruction_s
  * @tmp: Getline counter
  * @dict: instruction dictionary
  * @head: pointer to list
- * @line_number: Stores file current line
- * @MODE: Program configuration stack or queue
+ * @line_number: current line in file
+ * @MODE: is stack or queue
  */
 typedef struct glob_var
 {
@@ -70,8 +70,8 @@ extern vars var;
 
 /* util.c */
 int start_vars(vars *var);
-instruction_t *create_instru();
-int call_funct(vars *var, char *opcode);
+instruction_t *create_instruction();
+int get_funct(vars *var, char *opcode);
 void free_all(void);
 int _isdigit(char *string);
 
