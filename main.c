@@ -1,4 +1,5 @@
 #include "monty.h"
+#include <stdio.h>
 
 global_temp gt;
 
