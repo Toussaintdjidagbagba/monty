@@ -10,7 +10,7 @@ int start_vars(sg *vars)
 	vars->file = NULL;
 	vars->buff = NULL;
 	vars->tmp = 0;
-	vars->dict = create_instru();
+	vars->dict = create_dic();
 	if (vars->dict == NULL)
 		return (EXIT_FAILURE);
 	vars->head = NULL;
@@ -44,7 +44,7 @@ instruction_t *create_dic()
 
 /**
  * call_funct - Call Functions
- * @vars: struct global 
+ * @vars: struct global to initialize
  * @opcode: Command to execute
  * Return: None
  */
