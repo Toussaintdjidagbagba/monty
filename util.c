@@ -43,7 +43,7 @@ instruction_t *create_instruction()
 }
 
 /**
- * get_funct - Call Functions
+ * get_funct - get Functions
  * @var: Global variables
  * @opcode: Command to execute
  * Return: None
