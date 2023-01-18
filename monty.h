@@ -45,16 +45,16 @@ typedef struct instruction_s
 
 
 /**
- * struct struct_glob - struct global
+ * struct glob_var - golbal variables
  * @file: file name
  * @buff: Getline buffer
  * @tmp: Getline counter
  * @dict: instruction dictionary
  * @head: pointer to list
- * @line_number: current line
- * @MODE: is stack or queue
+ * @line_number: Stores file current line
+ * @MODE: Program configuration stack or queue
  */
-typedef struct struct_glob
+typedef struct glob_var
 {
 	FILE *file;
 	char *buff;
@@ -63,15 +63,15 @@ typedef struct struct_glob
 	stack_t *head;
 	unsigned int line_number;
 	int MODE;
-} sg;
+} vars;
 
 
-extern sg vars;
+extern vars var;
 
 /* util.c */
-int start_sg(sg *vars);
-instruction_t *create_dic();
-int call_funct(sg *vars, char *opcode);
+int start_vars(vars *var);
+instruction_t *create_instru();
+int call_funct(vars *var, char *opcode);
 void free_all(void);
 int _isdigit(char *string);
 
