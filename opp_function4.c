@@ -9,9 +9,12 @@ void rotl(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tm = *stack;
 	(void) line_number;
-
-	if (!stack || !*stack || !(*stack)->next)
-		return;
+	if (!stack || !*stack)
+	{
+		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
+		free_all();
+		exit(EXIT_FAILURE);
+	}
 	(*stack)->next->prev = NULL;
 	while (tm->next)
 		tm = tm->next;
