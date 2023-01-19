@@ -2,7 +2,7 @@
 /**
  * pall - Print list
  * @stack: Double linked list
- * @line_number: File line execution
+ * @line_number: value in line exection
  */
 void pall(stack_t **stack, unsigned int line_number)
 {
@@ -21,7 +21,7 @@ void pall(stack_t **stack, unsigned int line_number)
 /**
  * push - Insert a new value in list
  * @stack: Double linked list
- * @line_number: File line execution
+ * @line_number: value in line exection
  */
 void push(stack_t **stack, unsigned int line_number)
 {
@@ -64,7 +64,7 @@ void push(stack_t **stack, unsigned int line_number)
 /**
  * pint - Print last node
  * @stack: Double linked list
- * @line_number: File line execution
+ * @line_number: value in line exection
  */
 void pint(stack_t **stack, unsigned int line_number)
 {
@@ -80,7 +80,7 @@ void pint(stack_t **stack, unsigned int line_number)
 /**
 * pop - Delete top of list
 * @stack: Double linked list
-* @line_number: File line execution
+* @line_number: value in line exection
 */
 void pop(stack_t **stack, unsigned int line_number)
 {
