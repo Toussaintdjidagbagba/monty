@@ -11,9 +11,7 @@ void rotl(stack_t **stack, unsigned int line_number)
 	(void) line_number;
 	if (!stack || !*stack)
 	{
-		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
-		free_all();
-		exit(EXIT_FAILURE);
+		return;
 	}
 	(*stack)->next->prev = NULL;
 	while (tm->next)
@@ -34,7 +32,7 @@ void rotr(stack_t **stack, unsigned int line_number)
 	stack_t *tmp;
 	(void) line_number;
 
-	if (!stack || !*stack || !(*stack)->next)
+	if (!stack || !*stack)
 		return;
 
 	tmp = *stack;
@@ -47,7 +45,6 @@ void rotr(stack_t **stack, unsigned int line_number)
 
 	(*stack)->prev = tmp;
 	*stack = tmp;
-
 }
 
 /**
@@ -59,7 +56,6 @@ void stack(stack_t **stack, unsigned int line_number)
 {
 	(void) line_number;
 	(void) stack;
-
 	var.MODE = 0;
 }
 
@@ -72,6 +68,5 @@ void queue(stack_t **stack, unsigned int line_number)
 {
 	(void) line_number;
 	(void) stack;
-
 	var.MODE = 1;
 }
