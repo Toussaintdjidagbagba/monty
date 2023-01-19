@@ -83,17 +83,17 @@ void pstr(stack_t **stack, unsigned int line_number)
 
 	if (!stack || !*stack)
 	{
-		printf("\n");
+		putchar('\n');
 		return;
 	}
 	while (tmp)
 	{
-		if((tmp)->n == 0)
+		if (tmp->n == 0)
 			break;
-		if ((tmp)->n > 0 && (tmp)->n < 128)
+		if (!isascii((tmp)->n))
 			break;
-		printf("%c\n", tmp->n);
+		putchar(tmp->n);
 		tmp = tmp->next;
 	}
-	printf("\n");
+	putchar('\n');
 }
