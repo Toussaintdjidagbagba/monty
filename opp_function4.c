@@ -9,8 +9,8 @@ void rotl(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tm = *stack;
 	(void) line_number;
-	if (!stack || !*stack)
-		exit(EXIT_FAILURE);
+	if (!stack || !*stack || !(*stack)->next)
+		return;
 	(*stack)->next->prev = NULL;
 	while (tm->next)
 		tm = tm->next;
