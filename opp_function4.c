@@ -1,9 +1,9 @@
 #include "monty.h"
 
 /**
- * rotl - rotates the stack to the top.
+ * rotl - s
  * @stack: Double linked list
- * @line_number: value in line exection
+ * @line_number: File line execution
  */
 void rotl(stack_t **stack, unsigned int line_number)
 {
@@ -22,9 +22,9 @@ void rotl(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * rotr -  rotates the stack to the bottom.
+ * rotr - s
  * @stack: Double linked list
- * @line_number: value in line exection
+ * @line_number: File line execution
  */
 void rotr(stack_t **stack, unsigned int line_number)
 {
@@ -48,9 +48,9 @@ void rotr(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * stack - sets the format of the data to a stack (LIFO)
+ * stack - s
  * @stack: Double linked list
- * @line_number: value in line exection
+ * @line_number: File line execution
  */
 void stack(stack_t **stack, unsigned int line_number)
 {
@@ -61,9 +61,9 @@ void stack(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * queue - sets the format of the data to a queue (FIFO).
+ * queue - s
  * @stack: Double linked list
- * @line_number: value in line exection
+ * @line_number: File line execution
  */
 void queue(stack_t **stack, unsigned int line_number)
 {
