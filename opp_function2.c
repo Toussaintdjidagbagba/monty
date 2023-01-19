@@ -59,12 +59,12 @@ void sub(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * div - divides the second top element of the
+ * _div - divides the second top element of the
  * stack by the top element of the stack.
  * @stack: Double linked list
  * @line_number: value in line exection
  */
-void div(stack_t **stack, unsigned int line_number)
+void _div(stack_t **stack, unsigned int line_number)
 {
 	if (!*stack || !(*stack)->next)
 	{

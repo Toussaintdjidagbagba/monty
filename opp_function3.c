@@ -59,7 +59,7 @@ void pchar(stack_t **stack, unsigned int line_number)
 		free_all();
 		exit(EXIT_FAILURE);
 	}
-	if (isascii((*stack)->n))
+	if ((*stack)->n > 0 && (*stack)->n < 128)
 	{
 		printf("%c\n", (*stack)->n);
 		return;
