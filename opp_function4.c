@@ -12,7 +12,6 @@ void rotl(stack_t **stack, unsigned int line_number)
 	if (!stack || !*stack)
 	{
 		free_all();
-		exit(EXIT_FAILURE);
 		return;
 	}
 	(*stack)->next->prev = NULL;
