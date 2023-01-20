@@ -26,7 +26,7 @@ void pall(stack_t **stack, unsigned int line_number)
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp = NULL, *tm = *stack;
-	int *num;
+	char *num;
 
 	num = strtok(NULL, " \r\t\n");
 	if(num == NULL || (_isdigit(num) != 0 && num[0] != '-'))
