@@ -12,6 +12,7 @@
 #include <fcntl.h>
 #include <ctype.h>
 #define Buffsize 30
+#define  _POSIX_C_SOURCE 200809L
 
 /**
  * struct stack_s - Doubly linked list representation of a stack (or queue)

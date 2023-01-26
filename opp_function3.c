@@ -63,7 +63,9 @@ void pchar(stack_t **stack, unsigned int line_number)
 	{
 		printf("%c\n", (*stack)->n);
 		return;
-	}else{
+	}
+	else
+	{
 		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
 		free_all();
 		exit(EXIT_FAILURE);
