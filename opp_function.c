@@ -11,7 +11,7 @@ void pall(stack_t **stack, unsigned int line_number)
 
 	if (!tmp)
 		return;
-	while(tmp)
+	while (tmp)
 	{
 		printf("%d\n", tmp->n);
 		tmp = tmp->next;
@@ -29,7 +29,7 @@ void push(stack_t **stack, unsigned int line_number)
 	char *num;
 
 	num = strtok(NULL, " \r\t\n");
-	if(num == NULL || (_isdigit(num) != 0 && num[0] != '-'))
+	if (num == NULL || (_isdigit(num) != 0 && num[0] != '-'))
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		free_all();
